@@ -80,7 +80,7 @@ function attachInstructionText(marker, text) {
 }
 
 getStores = () => {
-    const URL = process.env.API_URL;
+    const URL = 'https://whispering-escarpment-20519.herokuapp.com/api/stores';
     const zipCode = document.getElementById("zip-code").value;
 
     if (zipCode) {
