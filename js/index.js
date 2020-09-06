@@ -3,6 +3,17 @@ let infoWindow;
 let markers = [];
 let directionsService = null;
 let directionsRenderer = null;
+
+// Create the script tag, set the appropriate attributes
+var script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&callback=initMap`;
+script.defer = true;
+
+
+// Append the 'script' element to 'head'
+document.head.appendChild(script);
+
+
 function initMap() {
     directionsService = new google.maps.DirectionsService();
     directionsRenderer = new google.maps.DirectionsRenderer();
@@ -50,26 +61,26 @@ function showSteps(directionResult) {
     // routes.
     //TODO: show steps in a sidebar
     var myRoute = directionResult.routes[0].legs[0];
-  
+
     for (var i = 0; i < myRoute.steps.length; i++) {
         var marker = new google.maps.Marker({
-          position: myRoute.steps[i].start_point,
-          map: map
+            position: myRoute.steps[i].start_point,
+            map: map
         });
         attachInstructionText(marker, myRoute.steps[i].instructions);
         markers[i] = marker;
     }
-  }
-  
-  function attachInstructionText(marker, text) {
-    google.maps.event.addListener(marker, 'click', function() {
-      stepDisplay.setContent(text);
-      stepDisplay.open(map, marker);
+}
+
+function attachInstructionText(marker, text) {
+    google.maps.event.addListener(marker, 'click', function () {
+        stepDisplay.setContent(text);
+        stepDisplay.open(map, marker);
     });
-  }
+}
 
 getStores = () => {
-    const URL = "http://localhost:3000/api/stores";
+    const URL = process.env.API_URL;
     const zipCode = document.getElementById("zip-code").value;
 
     if (zipCode) {
