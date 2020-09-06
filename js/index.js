@@ -6,7 +6,7 @@ let directionsRenderer = null;
 
 // Create the script tag, set the appropriate attributes
 var script = document.createElement('script');
-script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&callback=initMap`;
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCq78m4P_IS-8bN7sxZWNQAa0lhByIovJ4&callback=initMap`;
 script.defer = true;
 
 
