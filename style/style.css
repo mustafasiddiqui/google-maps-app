@@ -134,7 +134,8 @@ body {
     background-color: transparent;
     border: none;
     color: white;
-    outline: none
+    outline: none;
+    width: 100%;
 }
 
 .search i {
@@ -192,8 +193,8 @@ body {
     justify-content: center;
 }
 
-.enter-zip{
-    color: #514c4c ;
+.enter-zip {
+    color: #514c4c;
     font-size: 22px;
 }
 
@@ -202,7 +203,7 @@ body {
     font-size: 20px;
 }
 
-.no-stores-found{
+.no-stores-found {
     height: 100%;
     display: flex;
     justify-content: center;
