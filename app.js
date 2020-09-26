@@ -13,8 +13,8 @@ const port = process.env.PORT || 3000;
 app.use(logger('dev'));
 
 
-// app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(__dirname));
 
 app.listen(port);
 console.log(`listening on port ${port}`);
